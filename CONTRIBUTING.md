@@ -44,8 +44,6 @@ development machine:
 
 See also the list of [contributors][9] who participated in this project.
 
-## Links
-
 [1]: http://semver.org/
 [2]: https://www.conventionalcommits.org/en/v1.0.0-beta.2/
 [3]: https://git-scm.com/downloads
