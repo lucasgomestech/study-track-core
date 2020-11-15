@@ -1,0 +1,61 @@
+{
+  "name": "@lucasgomestech/study-track-core",
+  "version": "0.1.0",
+  "description": "Core functionalities for Study & Track.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint --ignore-path .gitignore src/**/*",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "clean": "rimraf lib coverage",
+    "test": "jest --config jestconfig.json",
+    "coverage": "npm run test -- --coverage",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasgomestech/study-track-core.git"
+  },
+  "engines": {
+    "node": "12.19.0"
+  },
+  "keywords": [
+    "study",
+    "track",
+    "core"
+  ],
+  "author": {
+    "name": "Lucas Gomes",
+    "email": "contact@lucasgomes.tech"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lucasgomestech/study-track-core/issues"
+  },
+  "homepage": "https://github.com/lucasgomestech/study-track-core#readme",
+  "files": [
+    "lib/**/*"
+  ],
+  "devDependencies": {
+    "@types/jest": "^26.0.15",
+    "@types/node": "^14.14.7",
+    "@types/pg": "^7.14.6",
+    "@typescript-eslint/eslint-plugin": "^4.7.0",
+    "@typescript-eslint/parser": "^4.7.0",
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^6.15.0",
+    "jest": "^26.6.3",
+    "prettier": "^2.1.2",
+    "ts-jest": "^26.4.4",
+    "typescript": "^4.0.5"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "pg": "^8.5.1"
+  }
+}
