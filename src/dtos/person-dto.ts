@@ -2,9 +2,10 @@ import { Gender } from '../enums';
 
 /**
  * Parameters to get a person.
- * @property {string} name
- * @property {Gender} gender
- * @property {string} email
+ *
+ * @property {string} name      The person's name.
+ * @property {Gender} gender    The person's gender.
+ * @property {string} email     The person's e-mail.
  */
 export interface IGetPerson {
     name?: string;

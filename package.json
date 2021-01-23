@@ -22,7 +22,7 @@
     "url": "git+https://github.com/lucasgomestech/study-track-core.git"
   },
   "engines": {
-    "node": "12.19.0"
+    "node": "12.20.1"
   },
   "keywords": [
     "study",

@@ -1,6 +1,6 @@
 import { PersonService } from '../../services';
 import { Person } from '../../models';
-import { Gender, NationalIdType } from '../../enums';
+import { Gender } from '../../enums';
 import { POOL as pool } from '../../ioc';
 
 describe(PersonService.name, () => {
@@ -22,8 +22,6 @@ describe(PersonService.name, () => {
             name: 'Luana Mariah Pires',
             gender: Gender.FEMALE,
             email: 'luana@email.com',
-            nationalIdType: NationalIdType.RG,
-            nationalId: '328211801',
             countryId: 4,
             birthDate: defaultBirthDate,
         };
@@ -35,8 +33,6 @@ describe(PersonService.name, () => {
         expect(createdPerson).toHaveProperty('name', person.name);
         expect(createdPerson).toHaveProperty('gender', person.gender);
         expect(createdPerson).toHaveProperty('email', person.email);
-        expect(createdPerson).toHaveProperty('nationalIdType', person.nationalIdType);
-        expect(createdPerson).toHaveProperty('nationalId', person.nationalId);
         expect(createdPerson).toHaveProperty('birthDate', person.birthDate);
         expect(createdPerson).toHaveProperty('countryId', person.countryId);
     });
@@ -52,8 +48,6 @@ describe(PersonService.name, () => {
         expect(person).toHaveProperty('name', 'Luana Mariah Pires');
         expect(person).toHaveProperty('gender', Gender.FEMALE);
         expect(person).toHaveProperty('email', 'luana@email.com');
-        expect(person).toHaveProperty('nationalIdType', NationalIdType.RG);
-        expect(person).toHaveProperty('nationalId', '328211801');
         expect(person).toHaveProperty('birthDate', defaultBirthDate);
         expect(person).toHaveProperty('countryId', 4);
         expect(person.modifiedAt).toBeInstanceOf(Date);

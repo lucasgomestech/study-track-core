@@ -12,7 +12,11 @@ export class PersonRepository {
 
     /**
      * Retrieves a person from the database
-     * @param {IGetPerson} param
+     *
+     * @param {string} name     Name of the person to find.
+     * @param {Gender} gender   Gender of the person to find.
+     * @param {string} email    E-mail of the person to find.
+     *
      * @returns {Person} person matching search
      */
     public async get(param: IGetPerson): Promise<Person> {
@@ -20,8 +24,6 @@ export class PersonRepository {
             `
             SELECT 
                 "tp"."id", 
-                "tp"."national_id", 
-                "tp"."national_id_type", 
                 "tp"."name", 
                 "tp"."birth_date", 
                 "tp"."gender", 
@@ -41,8 +43,6 @@ export class PersonRepository {
             result.rows[0].name,
             result.rows[0].gender,
             result.rows[0].email,
-            result.rows[0].national_id_type,
-            result.rows[0].national_id,
             result.rows[0].birth_date,
             result.rows[0].country_id,
             result.rows[0].modified_at,
@@ -53,14 +53,14 @@ export class PersonRepository {
     }
 
     /**
-     * Creates a new person at the database
-     * @param {Person} person the person to insert
-     * @returns {Person} the created person with id
+     * Creates a new person at the database.
+     *
+     * @param {Person} person the person to insert.
+     *
+     * @returns {Person} the created person with id.
      */
     public async create(person: Person): Promise<Person> {
-        const result = await this.pool.query('CALL create_person($1, $2, $3, $4, $5, $6, $7, $8)', [
-            person.nationalId,
-            person.nationalIdType,
+        const result = await this.pool.query('CALL create_person($1, $2, $3, $4, $5, $6)', [
             person.name,
             person.gender,
             person.email,
